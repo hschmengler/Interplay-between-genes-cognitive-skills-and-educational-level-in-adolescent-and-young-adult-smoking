@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+a:link
+{
+    color: black;
+    text-decoration: none;
+}
+a[name]:hover
+{
+    text-decoration: none;
+}
+a:hover
+{
+    color: blue;
+    text-decoration: underline;
+}
+a:visited
+{
+    color: black;
+    text-decoration: none;
+}
+.heading
+{
+    color: black;
+    font-weight: bold;
+    font-size: 110%;
+}
+.heading:hover
+{
+    color: black;
+    font-weight: bold;
+    font-size: 110%;
+    text-decoration: none;
+}
+</style>
+
+<body style="font-family:'Courier New'; font-size:14px;">
+<p class="heading">
+Mplus VERSION 8.10<br />
+MUTHEN & MUTHEN<br />
+08/04/2023   7:32 PM<br />
+</p>
+
+<p class='heading'>OUTPUT SECTIONS</p>
+
+<ul>
+     <li><a href='#input'>Input Instructions</a></li>
+     <li><a href='#inputmessages'>Input Warnings And Errors</a></li>
+     <li><a href='#summary_analysis'>Summary Of Analysis</a></li>
+     <li><a href='#countprops'>Count Proportion Of Zero, Minimum And Maximum Values</a></li>
+     <li><a href='#samplestats'>Sample Statistics</a></li>
+     <li><a href='#univariatess'>Univariate Sample Statistics</a></li>
+     <li><a href='#modelmessages'>Model Warnings And Errors</a></li>
+     <li><a href='#model_fit'>Model Fit Information</a></li>
+     <li><a href='#model_results'>Model Results</a></li>
+     <li><a href='#indirect_results'>Total, Total Indirect, Specific Indirect, And Direct Effects</a></li>
+     <li><a href='#ci_results'>Confidence Intervals Of Model Results</a></li>
+     <li><a href='#ci_indirect'>Confidence Intervals Of Total, Total Indirect, Specific Indirect, And Direct Effects</a></li>
+</ul>
+<pre>
+
+<a name='input' class='heading'>INPUT INSTRUCTIONS</a>
+
+  Title:
+    Figure S7A M26
+
+  Data:
+    File is TRAILS_PRS_27062023.dat ;
+   ! switch listwise deletion on for complete case analysis
+    Listwise = On;
+  Variable:
+    Names are
+       idno cohort g1sex g1ageyrc p1eaefc g1wiscdq T5_ladder_4cat T6_ladder_4cat
+       T4_ladder_4cat T3_ladder_4cat Zedu_PRS1 Zsmok_PRS1 T1_smok_par_3cat
+       mean_edu_par smoking3_MP smoking4_MP smoking5_MP smoking6_MP;
+    Missing are all (-9999) ;
+
+  Usevariables are smoking6_MP Zsmok_PRS1 p1eaefc g1wiscdq
+    T6_ladder_4cat g1ageyrc g1sex cohort mean_edu_par
+   T1_smok_par_3cat;
+
+  Count is smoking6_MP (nb);
+
+
+  Model:
+  ! outcome
+  smoking6_MP ON T6_ladder_4cat Zsmok_PRS1 p1eaefc g1wiscdq
+  g1ageyrc g1sex cohort mean_edu_par
+   T1_smok_par_3cat;
+
+
+  ! mediators
+  p1eaefc g1wiscdq ON Zsmok_PRS1
+  g1ageyrc g1sex cohort mean_edu_par
+   T1_smok_par_3cat;
+
+  T6_ladder_4cat ON p1eaefc g1wiscdq Zsmok_PRS1
+  g1ageyrc g1sex cohort mean_edu_par
+   T1_smok_par_3cat;
+
+  p1eaefc WITH g1wiscdq;
+
+
+  Model indirect:
+  smoking6_MP IND Zsmok_PRS1;
+  T6_ladder_4cat IND Zsmok_PRS1;
+
+  Analysis:
+    Estimator = MLR;
+    process = 23;
+
+  Output:
+  sampstat cinterval ;
+
+
+
+
+<a name='inputmessages' class='heading'></a>
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+Figure S7A M26
+
+<a name='summary_analysis' class='heading'>SUMMARY OF ANALYSIS</a>
+
+Number of groups                                                 1
+Number of observations                                         838
+
+Number of dependent variables                                    4
+Number of independent variables                                  6
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Continuous
+   P1EAEFC     G1WISCDQ    T6_LADDER_
+
+  Count
+   SMOKING6_M
+
+Observed independent variables
+   ZSMOK_PR    G1AGEYRC    G1SEX       COHORT      MEAN_EDU    T1_SMOK_
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-02
+    Relative loglikelihood change                        0.100D-05
+    Derivative                                           0.100D-02
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-02
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-02
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Optimization algorithm                                         EMA
+Integration Specifications
+  Type                                                    STANDARD
+  Number of integration points                                  15
+  Dimensions of numerical integration                            0
+  Adaptive quadrature                                           ON
+Cholesky                                                       OFF
+
+Input data file(s)
+  TRAILS_PRS_27062023.dat
+Input data format  FREE
+
+
+<a name='countprops' class='heading'>COUNT PROPORTION OF ZERO, MINIMUM AND MAXIMUM VALUES</a>
+
+      SMOKING6    0.687         0        31
+
+
+<a name='samplestats' class='heading'>SAMPLE STATISTICS</a>
+
+
+     SAMPLE STATISTICS
+
+
+           Means
+              P1EAEFC       G1WISCDQ      T6_LADDE      ZSMOK_PR      G1AGEYRC
+              ________      ________      ________      ________      ________
+                3.252       102.222         2.900        -0.101        11.105
+
+
+           Means
+              G1SEX         COHORT        MEAN_EDU      T1_SMOK_
+              ________      ________      ________      ________
+                0.462         0.186         3.314         0.581
+
+
+           Covariances
+              P1EAEFC       G1WISCDQ      T6_LADDE      ZSMOK_PR      G1AGEYRC
+              ________      ________      ________      ________      ________
+ P1EAEFC        0.511
+ G1WISCDQ       2.243       199.648
+ T6_LADDE       0.261         6.741         0.809
+ ZSMOK_PR      -0.044        -1.637        -0.162         1.009
+ G1AGEYRC       0.018         0.092         0.029        -0.016         0.311
+ G1SEX         -0.070         0.673        -0.010        -0.019         0.012
+ COHORT        -0.084        -0.260        -0.077        -0.003         0.003
+ MEAN_EDU       0.098         4.354         0.367        -0.178         0.038
+ T1_SMOK_      -0.039        -1.301        -0.104         0.093         0.006
+
+
+           Covariances
+              G1SEX         COHORT        MEAN_EDU      T1_SMOK_
+              ________      ________      ________      ________
+ G1SEX          0.249
+ COHORT         0.037         0.152
+ MEAN_EDU       0.021        -0.020         0.768
+ T1_SMOK_       0.003        -0.025        -0.127         0.561
+
+
+           Correlations
+              P1EAEFC       G1WISCDQ      T6_LADDE      ZSMOK_PR      G1AGEYRC
+              ________      ________      ________      ________      ________
+ P1EAEFC        1.000
+ G1WISCDQ       0.222         1.000
+ T6_LADDE       0.406         0.531         1.000
+ ZSMOK_PR      -0.061        -0.115        -0.180         1.000
+ G1AGEYRC       0.044         0.012         0.058        -0.029         1.000
+ G1SEX         -0.197         0.096        -0.022        -0.038         0.042
+ COHORT        -0.302        -0.047        -0.219        -0.009         0.013
+ MEAN_EDU       0.157         0.352         0.466        -0.202         0.078
+ T1_SMOK_      -0.072        -0.123        -0.154         0.123         0.013
+
+
+           Correlations
+              G1SEX         COHORT        MEAN_EDU      T1_SMOK_
+              ________      ________      ________      ________
+ G1SEX          1.000
+ COHORT         0.190         1.000
+ MEAN_EDU       0.049        -0.060         1.000
+ T1_SMOK_       0.007        -0.085        -0.194         1.000
+
+
+<a name='univariatess' class='heading'>UNIVARIATE SAMPLE STATISTICS</a>
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     P1EAEFC               3.252      -0.135       1.091    0.12%       2.636      3.091      3.273
+             838.000       0.511      -0.336       5.000    0.12%       3.455      3.818
+     G1WISCDQ            102.222      -0.053      45.000    0.12%      91.000    100.000    103.000
+             838.000     199.648       0.020     139.000    0.48%     106.000    115.000
+     T6_LADDER_4CAT        2.900      -0.383       1.000    7.04%       2.000      3.000      3.000
+             838.000       0.809      -0.701       4.000   28.88%       3.000      4.000
+     ZSMOK_PRS1           -0.101      -0.062      -2.973    0.12%      -0.969     -0.316     -0.073
+             838.000       1.009      -0.207       2.618    0.12%       0.150      0.742
+     G1AGEYRC             11.105       0.501      10.012    0.12%      10.620     10.872     11.025
+             838.000       0.311      -0.436      12.539    0.24%      11.184     11.576
+     G1SEX                 0.462       0.153       0.000   53.82%       0.000      0.000      0.000
+             838.000       0.249      -1.977       1.000   46.18%       1.000      1.000
+     COHORT                0.186       1.613       0.000   81.38%       0.000      0.000      0.000
+             838.000       0.152       0.601       1.000   18.62%       0.000      0.000
+     MEAN_EDU_PAR          3.314       0.122       1.000    0.12%       2.500      3.000      3.000
+             838.000       0.768      -0.797       5.000    5.85%       3.500      4.000
+     T1_SMOK_PAR_3CA       0.581       0.856       0.000   57.76%       0.000      0.000      0.000
+             838.000       0.561      -0.720       2.000   15.87%       1.000      1.000
+
+<a name='modelmessages' class='heading'></a>
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+<a name='model_fit' class='heading'>MODEL FIT INFORMATION</a>
+
+Number of Free Parameters                       38
+
+Loglikelihood
+
+          H0 Value                       -6243.678
+          H0 Scaling Correction Factor      0.9454
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   12563.356
+          Bayesian (BIC)                 12743.135
+          Sample-Size Adjusted BIC       12622.459
+            (n* = (n + 2) / 24)
+
+
+
+<a name='model_results' class='heading'>MODEL RESULTS</a>
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ SMOKING6_M ON
+    T6_LADDER_        -0.879      0.111     -7.940      0.000
+    ZSMOK_PRS1         0.268      0.082      3.259      0.001
+    P1EAEFC           -0.123      0.125     -0.988      0.323
+    G1WISCDQ           0.003      0.007      0.352      0.725
+    G1AGEYRC          -0.143      0.154     -0.927      0.354
+    G1SEX              0.264      0.169      1.566      0.117
+    COHORT            -0.371      0.232     -1.599      0.110
+    MEAN_EDU_P         0.133      0.111      1.201      0.230
+    T1_SMOK_PA         0.248      0.108      2.290      0.022
+
+ P1EAEFC    ON
+    ZSMOK_PRS1        -0.025      0.023     -1.070      0.285
+    G1AGEYRC           0.057      0.040      1.423      0.155
+    G1SEX             -0.221      0.048     -4.579      0.000
+    COHORT            -0.499      0.065     -7.732      0.000
+    MEAN_EDU_P         0.102      0.027      3.830      0.000
+    T1_SMOK_PA        -0.063      0.032     -1.998      0.046
+
+ G1WISCDQ   ON
+    ZSMOK_PRS1        -0.557      0.453     -1.231      0.218
+    G1AGEYRC          -0.436      0.787     -0.554      0.580
+    G1SEX              2.516      0.919      2.739      0.006
+    COHORT            -1.808      1.237     -1.462      0.144
+    MEAN_EDU_P         5.260      0.513     10.244      0.000
+    T1_SMOK_PA        -1.120      0.611     -1.834      0.067
+
+ T6_LADDER_ ON
+    P1EAEFC            0.300      0.036      8.258      0.000
+    G1WISCDQ           0.023      0.002     12.921      0.000
+    ZSMOK_PRS1        -0.057      0.023     -2.421      0.015
+    G1AGEYRC           0.037      0.041      0.892      0.372
+    G1SEX             -0.006      0.047     -0.133      0.894
+    COHORT            -0.272      0.065     -4.219      0.000
+    MEAN_EDU_P         0.278      0.028      9.914      0.000
+    T1_SMOK_PA        -0.051      0.032     -1.598      0.110
+
+ P1EAEFC  WITH
+    G1WISCDQ           1.690      0.298      5.674      0.000
+
+ Intercepts
+    P1EAEFC            2.513      0.447      5.626      0.000
+    G1WISCDQ          89.400      8.754     10.212      0.000
+    T6_LADDER_        -1.700      0.476     -3.568      0.000
+    SMOKING6_M         4.107      1.689      2.432      0.015
+
+ Residual Variances
+    P1EAEFC            0.439      0.020     21.431      0.000
+    G1WISCDQ         172.254      8.847     19.471      0.000
+    T6_LADDER_         0.435      0.021     20.473      0.000
+    SMOKING6_M         5.948      0.478     12.457      0.000
+
+ Dispersion
+    SMOKING6_M         5.948      0.478     12.457      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.307E-07
+       (ratio of smallest to largest eigenvalue)
+
+
+<a name='indirect_results' class='heading'>TOTAL, TOTAL INDIRECT, SPECIFIC INDIRECT, AND DIRECT EFFECTS</a>
+
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Effects from ZSMOK_PR to SMOKING6
+
+  Total                0.337      0.087      3.859      0.000
+  Total indirect       0.069      0.025      2.794      0.005
+
+  Specific indirect 1
+    SMOKING6
+    P1EAEFC
+    ZSMOK_PR           0.003      0.004      0.703      0.482
+
+  Specific indirect 2
+    SMOKING6
+    G1WISCDQ
+    ZSMOK_PR          -0.001      0.004     -0.337      0.736
+
+  Specific indirect 3
+    SMOKING6
+    T6_LADDE
+    ZSMOK_PR           0.050      0.021      2.341      0.019
+
+  Specific indirect 4
+    SMOKING6
+    T6_LADDE
+    P1EAEFC
+    ZSMOK_PR           0.007      0.006      1.051      0.293
+
+  Specific indirect 5
+    SMOKING6
+    T6_LADDE
+    G1WISCDQ
+    ZSMOK_PR           0.011      0.009      1.221      0.222
+
+  Direct
+    SMOKING6
+    ZSMOK_PR           0.268      0.082      3.259      0.001
+
+
+Effects from ZSMOK_PR to T6_LADDE
+
+  Total               -0.077      0.027     -2.898      0.004
+  Total indirect      -0.020      0.014     -1.501      0.133
+
+  Specific indirect 1
+    T6_LADDE
+    P1EAEFC
+    ZSMOK_PR          -0.007      0.007     -1.060      0.289
+
+  Specific indirect 2
+    T6_LADDE
+    G1WISCDQ
+    ZSMOK_PR          -0.013      0.010     -1.231      0.218
+
+  Direct
+    T6_LADDE
+    ZSMOK_PR          -0.057      0.023     -2.421      0.015
+
+
+
+<a name='ci_results' class='heading'>CONFIDENCE INTERVALS OF MODEL RESULTS</a>
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ SMOKING6 ON
+    T6_LADDER_      -1.164      -1.096      -1.061      -0.879      -0.697      -0.662      -0.594
+    ZSMOK_PRS1       0.056       0.107       0.133       0.268       0.403       0.429       0.479
+    P1EAEFC         -0.445      -0.368      -0.329      -0.123       0.082       0.121       0.198
+    G1WISCDQ        -0.016      -0.012      -0.009       0.003       0.015       0.017       0.021
+    G1AGEYRC        -0.540      -0.445      -0.397      -0.143       0.111       0.159       0.254
+    G1SEX           -0.170      -0.066      -0.013       0.264       0.541       0.595       0.698
+    COHORT          -0.969      -0.826      -0.753      -0.371       0.011       0.084       0.227
+    MEAN_EDU_P      -0.152      -0.084      -0.049       0.133       0.315       0.349       0.417
+    T1_SMOK_PA      -0.031       0.036       0.070       0.248       0.427       0.461       0.528
+
+ P1EAEFC  ON
+    ZSMOK_PRS1      -0.084      -0.070      -0.063      -0.025       0.013       0.021       0.035
+    G1AGEYRC        -0.046      -0.021      -0.009       0.057       0.122       0.135       0.159
+    G1SEX           -0.346      -0.316      -0.301      -0.221      -0.142      -0.127      -0.097
+    COHORT          -0.666      -0.626      -0.606      -0.499      -0.393      -0.373      -0.333
+    MEAN_EDU_P       0.033       0.050       0.058       0.102       0.146       0.154       0.171
+    T1_SMOK_PA      -0.144      -0.125      -0.115      -0.063      -0.011      -0.001       0.018
+
+ G1WISCDQ ON
+    ZSMOK_PRS1      -1.723      -1.445      -1.302      -0.557       0.187       0.330       0.609
+    G1AGEYRC        -2.464      -1.979      -1.731      -0.436       0.859       1.107       1.591
+    G1SEX            0.150       0.715       1.005       2.516       4.027       4.316       4.882
+    COHORT          -4.993      -4.231      -3.842      -1.808       0.227       0.616       1.378
+    MEAN_EDU_P       3.937       4.254       4.415       5.260       6.105       6.266       6.583
+    T1_SMOK_PA      -2.693      -2.317      -2.125      -1.120      -0.116       0.077       0.453
+
+ T6_LADDE ON
+    P1EAEFC          0.206       0.229       0.240       0.300       0.360       0.371       0.393
+    G1WISCDQ         0.019       0.020       0.020       0.023       0.026       0.027       0.028
+    ZSMOK_PRS1      -0.117      -0.103      -0.095      -0.057      -0.018      -0.011       0.004
+    G1AGEYRC        -0.070      -0.044      -0.031       0.037       0.105       0.118       0.144
+    G1SEX           -0.128      -0.099      -0.084      -0.006       0.072       0.087       0.116
+    COHORT          -0.438      -0.399      -0.378      -0.272      -0.166      -0.146      -0.106
+    MEAN_EDU_P       0.206       0.223       0.232       0.278       0.324       0.333       0.350
+    T1_SMOK_PA      -0.133      -0.113      -0.103      -0.051       0.002       0.012       0.031
+
+ P1EAEFC  WITH
+    G1WISCDQ         0.923       1.106       1.200       1.690       2.180       2.274       2.457
+
+ Intercepts
+    P1EAEFC          1.363       1.638       1.778       2.513       3.248       3.388       3.664
+    G1WISCDQ        66.850      72.241      74.999      89.400     103.800     106.558     111.949
+    T6_LADDER_      -2.927      -2.634      -2.484      -1.700      -0.916      -0.766      -0.473
+    SMOKING6_M      -0.242       0.797       1.329       4.107       6.885       7.416       8.456
+
+ Residual Variances
+    P1EAEFC          0.386       0.399       0.405       0.439       0.472       0.479       0.491
+    G1WISCDQ       149.467     154.914     157.701     172.254     186.807     189.594     195.041
+    T6_LADDER_       0.381       0.394       0.400       0.435       0.470       0.477       0.490
+    SMOKING6_M       4.718       5.013       5.163       5.948       6.734       6.884       7.178
+
+
+<a name='ci_indirect' class='heading'>CONFIDENCE INTERVALS OF TOTAL, TOTAL INDIRECT, SPECIFIC INDIRECT, AND DIRECT EFFECTS</a>
+
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+Effects from ZSMOK_PR to SMOKING6
+
+  Total              0.112       0.166       0.193       0.337       0.481       0.508       0.562
+  Total indirect     0.005       0.021       0.029       0.069       0.110       0.118       0.134
+
+  Specific indirect 1
+    SMOKING6
+    P1EAEFC
+    ZSMOK_PR        -0.008      -0.005      -0.004       0.003       0.010       0.012       0.014
+
+  Specific indirect 2
+    SMOKING6
+    G1WISCDQ
+    ZSMOK_PR        -0.012      -0.010      -0.008      -0.001       0.006       0.007       0.009
+
+  Specific indirect 3
+    SMOKING6
+    T6_LADDE
+    ZSMOK_PR        -0.005       0.008       0.015       0.050       0.085       0.092       0.105
+
+  Specific indirect 4
+    SMOKING6
+    T6_LADDE
+    P1EAEFC
+    ZSMOK_PR        -0.009      -0.006      -0.004       0.007       0.017       0.019       0.023
+
+  Specific indirect 5
+    SMOKING6
+    T6_LADDE
+    G1WISCDQ
+    ZSMOK_PR        -0.013      -0.007      -0.004       0.011       0.027       0.030       0.035
+
+  Direct
+    SMOKING6
+    ZSMOK_PR         0.056       0.107       0.133       0.268       0.403       0.429       0.479
+
+
+Effects from ZSMOK_PR to T6_LADDE
+
+  Total             -0.146      -0.129      -0.121      -0.077      -0.033      -0.025      -0.009
+  Total indirect    -0.055      -0.047      -0.043      -0.020       0.002       0.006       0.015
+
+  Specific indirect 1
+    T6_LADDE
+    P1EAEFC
+    ZSMOK_PR        -0.025      -0.021      -0.019      -0.007       0.004       0.006       0.011
+
+  Specific indirect 2
+    T6_LADDE
+    G1WISCDQ
+    ZSMOK_PR        -0.040      -0.033      -0.030      -0.013       0.004       0.008       0.014
+
+  Direct
+    T6_LADDE
+    ZSMOK_PR        -0.117      -0.103      -0.095      -0.057      -0.018      -0.011       0.004
+
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    d:\onedrive - universiteit utrecht\trails prs paper\internal revision 2\scripts\edited datasets\mplus listwise\figur
+
+     Beginning Time:  19:32:13
+        Ending Time:  19:32:13
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2023 Muthen & Muthen
+</pre>
+</body>
+</html>
