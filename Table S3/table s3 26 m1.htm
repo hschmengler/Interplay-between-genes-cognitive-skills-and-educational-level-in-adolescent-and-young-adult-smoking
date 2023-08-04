@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+a:link
+{
+    color: black;
+    text-decoration: none;
+}
+a[name]:hover
+{
+    text-decoration: none;
+}
+a:hover
+{
+    color: blue;
+    text-decoration: underline;
+}
+a:visited
+{
+    color: black;
+    text-decoration: none;
+}
+.heading
+{
+    color: black;
+    font-weight: bold;
+    font-size: 110%;
+}
+.heading:hover
+{
+    color: black;
+    font-weight: bold;
+    font-size: 110%;
+    text-decoration: none;
+}
+</style>
+
+<body style="font-family:'Courier New'; font-size:14px;">
+<p class="heading">
+Mplus VERSION 8.10<br />
+MUTHEN & MUTHEN<br />
+08/04/2023   7:54 PM<br />
+</p>
+
+<p class='heading'>OUTPUT SECTIONS</p>
+
+<ul>
+     <li><a href='#input'>Input Instructions</a></li>
+     <li><a href='#inputmessages'>Input Warnings And Errors</a></li>
+     <li><a href='#summary_analysis'>Summary Of Analysis</a></li>
+     <li><a href='#summary_data'>Summary Of Data For The First Data Set</a></li>
+     <li><a href='#summary_missing_patterns'>Summary Of Missing Data Patterns For The First Data Set</a></li>
+     <li><a href='#covariance_coverage'>Covariance Coverage Of Data For The First Data Set</a></li>
+     <li><a href='#countprops'>Count Proportion Of Zero, Minimum And Maximum Values</a></li>
+     <li><a href='#samplestats'>Sample Statistics</a></li>
+     <li><a href='#model_fit'>Model Fit Information</a></li>
+     <li><a href='#model_results'>Model Results</a></li>
+     <li><a href='#ci_results'>Confidence Intervals Of Model Results</a></li>
+     <li><a href='#tech1_output'>Technical 1 Output</a></li>
+     <li><a href='#tech9_output'>Technical 9 Output</a></li>
+</ul>
+<pre>
+
+<a name='input' class='heading'>INPUT INSTRUCTIONS</a>
+
+  Title:
+    Table S3 26 M1
+
+  Data:
+    FILE IS mi_dataset_MPLUS_implist.dat;
+    TYPE = IMPUTATION;
+  Variable:
+    Names are
+       T1_smok_par_3cat T3_ladder_4cat T4_ladder_4cat T5_ladder_4cat T6_ladder_4cat
+       Zedu_PRS1 Zsmok_PRS1 cohort g1ageyrc g1sex g1wiscdq idno mean_edu_par
+       p1eaefc smoking3_MP smoking4_MP smoking5_MP smoking6_MP;
+    Missing are all (-9999) ;
+
+  Usevariables are smoking6_MP T6_ladder_4cat;
+
+
+
+  Count is smoking6_MP (nb);
+
+
+  Model:
+  smoking6_MP ON T6_ladder_4cat;
+
+
+
+  Analysis:
+    Estimator = MLR;
+    process = 23;
+
+
+  Output:
+  sampstat cinterval tech9 ;
+
+
+
+
+<a name='inputmessages' class='heading'></a>
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+Table S3 26 M1
+
+<a name='summary_analysis' class='heading'>SUMMARY OF ANALYSIS</a>
+
+Number of groups                                                 1
+Average number of observations                                1581
+
+Number of replications
+    Requested                                                   90
+    Completed                                                   90
+
+Number of dependent variables                                    1
+Number of independent variables                                  1
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Count
+   SMOKING6_M
+
+Observed independent variables
+   T6_LADDE
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-02
+    Relative loglikelihood change                        0.100D-05
+    Derivative                                           0.100D-02
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-02
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-02
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Integration Specifications
+  Type                                                    STANDARD
+  Number of integration points                                  15
+  Dimensions of numerical integration                            0
+  Adaptive quadrature                                           ON
+Cholesky                                                       OFF
+
+Input data file(s)
+  Multiple data files from
+    mi_dataset_MPLUS_implist.dat
+Input data format  FREE
+
+
+<a name='summary_data' class='heading'>SUMMARY OF DATA FOR THE FIRST DATA SET</a>
+
+
+
+<a name='summary_missing_patterns' class='heading'>SUMMARY OF MISSING DATA PATTERNS FOR THE FIRST DATA SET</a>
+
+
+<a name='covariance_coverage' class='heading'>COVARIANCE COVERAGE OF DATA FOR THE FIRST DATA SET</a>
+
+Minimum covariance coverage value   0.100
+
+
+<a name='countprops' class='heading'>COUNT PROPORTION OF ZERO, MINIMUM AND MAXIMUM VALUES</a>
+
+      SMOKING6    0.626         0        31
+
+
+<a name='samplestats' class='heading'>SAMPLE STATISTICS</a>
+
+NOTE:  These are average results over 90 data sets.
+
+
+     SAMPLE STATISTICS
+
+
+           Means
+              T6_LADDE
+              ________
+                2.655
+
+
+           Covariances
+              T6_LADDE
+              ________
+ T6_LADDE       0.944
+
+
+           Correlations
+              T6_LADDE
+              ________
+ T6_LADDE       1.000
+
+
+
+
+<a name='model_fit' class='heading'>MODEL FIT INFORMATION</a>
+
+Number of Free Parameters                        3
+
+Loglikelihood
+
+    H0 Value
+
+        Mean                             -2864.524
+        Std Dev                             34.044
+        Number of successful computations       90
+
+             Proportions                   Percentiles
+        Expected    Observed         Expected       Observed
+           0.990       1.000        -2943.720      -2930.539
+           0.980       1.000        -2934.439      -2930.539
+           0.950       0.956        -2920.522      -2922.636
+           0.900       0.889        -2908.154      -2915.511
+           0.800       0.778        -2893.175      -2899.632
+           0.700       0.689        -2882.376      -2882.639
+           0.500       0.489        -2864.524      -2866.250
+           0.300       0.356        -2846.672      -2845.750
+           0.200       0.178        -2835.873      -2838.327
+           0.100       0.078        -2820.894      -2829.288
+           0.050       0.044        -2808.526      -2813.820
+           0.020       0.011        -2794.609      -2795.647
+           0.010       0.011        -2785.328      -2795.501
+
+Information Criteria
+
+    Akaike (AIC)
+
+        Mean                              5735.048
+        Std Dev                             68.087
+        Number of successful computations       90
+
+             Proportions                   Percentiles
+        Expected    Observed         Expected       Observed
+           0.990       0.989         5576.657       5506.021
+           0.980       0.989         5595.217       5506.021
+           0.950       0.956         5623.051       5597.901
+           0.900       0.922         5647.787       5654.147
+           0.800       0.822         5677.746       5678.911
+           0.700       0.644         5699.343       5695.918
+           0.500       0.511         5735.048       5736.341
+           0.300       0.311         5770.753       5765.346
+           0.200       0.222         5792.350       5799.044
+           0.100       0.111         5822.309       5834.397
+           0.050       0.044         5847.045       5838.229
+           0.020       0.000         5874.879       5856.844
+           0.010       0.000         5893.439       5857.002
+
+    Bayesian (BIC)
+
+        Mean                              5751.145
+        Std Dev                             68.087
+        Number of successful computations       90
+
+             Proportions                   Percentiles
+        Expected    Observed         Expected       Observed
+           0.990       0.989         5592.754       5522.119
+           0.980       0.989         5611.315       5522.119
+           0.950       0.956         5639.149       5613.998
+           0.900       0.922         5663.885       5670.245
+           0.800       0.822         5693.843       5695.008
+           0.700       0.644         5715.441       5712.016
+           0.500       0.511         5751.145       5752.439
+           0.300       0.311         5786.850       5781.443
+           0.200       0.222         5808.448       5815.141
+           0.100       0.111         5838.406       5850.495
+           0.050       0.044         5863.142       5854.327
+           0.020       0.000         5890.976       5872.941
+           0.010       0.000         5909.537       5873.100
+
+    Sample-Size Adjusted BIC (n* = (n + 2) / 24)
+
+        Mean                              5741.615
+        Std Dev                             68.087
+        Number of successful computations       90
+
+             Proportions                   Percentiles
+        Expected    Observed         Expected       Observed
+           0.990       0.989         5583.224       5512.588
+           0.980       0.989         5601.784       5512.588
+           0.950       0.956         5629.618       5604.468
+           0.900       0.922         5654.355       5660.714
+           0.800       0.822         5684.313       5685.478
+           0.700       0.644         5705.910       5702.486
+           0.500       0.511         5741.615       5742.908
+           0.300       0.311         5777.320       5771.913
+           0.200       0.222         5798.917       5805.611
+           0.100       0.111         5828.876       5840.964
+           0.050       0.044         5853.612       5844.796
+           0.020       0.000         5881.446       5863.411
+           0.010       0.000         5900.006       5863.570
+
+
+
+<a name='model_results' class='heading'>MODEL RESULTS</a>
+
+                                                    Two-Tailed   Rate of
+                    Estimate       S.E.  Est./S.E.    P-Value    Missing
+
+ SMOKING6_M ON
+    T6_LADDER_        -0.666      0.066    -10.090      0.000      0.251
+
+ Intercepts
+    SMOKING6_M         2.739      0.152     17.963      0.000      0.271
+
+ Residual Variances
+    SMOKING6_M         5.438      0.342     15.886      0.000      0.279
+
+ Dispersion
+    SMOKING6_M         5.438      0.342     15.886      0.000      0.279
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Average Condition Number for the Information Matrix      0.263E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+<a name='ci_results' class='heading'>CONFIDENCE INTERVALS OF MODEL RESULTS</a>
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ SMOKING6 ON
+    T6_LADDER_      -0.836      -0.795      -0.774      -0.666      -0.557      -0.536      -0.496
+
+ Intercepts
+    SMOKING6_M       2.346       2.440       2.488       2.739       2.990       3.038       3.132
+
+ Residual Variances
+    SMOKING6_M       4.556       4.767       4.875       5.438       6.001       6.109       6.320
+
+
+<a name='tech1_output' class='heading'>TECHNICAL 1 OUTPUT</a>
+
+
+     PARAMETER SPECIFICATION
+
+
+           NU
+              SMOKING6      SMOKING6      T6_LADDE
+              ________      ________      ________
+                    0             0             0
+
+
+           LAMBDA
+              SMOKING6      SMOKING6      T6_LADDE
+              ________      ________      ________
+ SMOKING6           0             0             0
+ SMOKING6           0             0             0
+ T6_LADDE           0             0             0
+
+
+           THETA
+              SMOKING6      SMOKING6      T6_LADDE
+              ________      ________      ________
+ SMOKING6           0
+ SMOKING6           0             0
+ T6_LADDE           0             0             0
+
+
+           ALPHA
+              SMOKING6      SMOKING6      T6_LADDE
+              ________      ________      ________
+                    0             1             0
+
+
+           BETA
+              SMOKING6      SMOKING6      T6_LADDE
+              ________      ________      ________
+ SMOKING6           0             0             0
+ SMOKING6           0             0             2
+ T6_LADDE           0             0             0
+
+
+           PSI
+              SMOKING6      SMOKING6      T6_LADDE
+              ________      ________      ________
+ SMOKING6           0
+ SMOKING6           0             3
+ T6_LADDE           0             0             0
+
+
+     STARTING VALUES
+
+
+           NU
+              SMOKING6      SMOKING6      T6_LADDE
+              ________      ________      ________
+                0.000         0.000         0.000
+
+
+           LAMBDA
+              SMOKING6      SMOKING6      T6_LADDE
+              ________      ________      ________
+ SMOKING6       1.000         0.000         0.000
+ SMOKING6       0.000         1.000         0.000
+ T6_LADDE       0.000         0.000         1.000
+
+
+           THETA
+              SMOKING6      SMOKING6      T6_LADDE
+              ________      ________      ________
+ SMOKING6       0.000
+ SMOKING6       0.000         0.000
+ T6_LADDE       0.000         0.000         0.000
+
+
+           ALPHA
+              SMOKING6      SMOKING6      T6_LADDE
+              ________      ________      ________
+              -20.000         2.559         0.000
+
+
+           BETA
+              SMOKING6      SMOKING6      T6_LADDE
+              ________      ________      ________
+ SMOKING6       0.000         0.000         0.000
+ SMOKING6       0.000         0.000         0.000
+ T6_LADDE       0.000         0.000         0.000
+
+
+           PSI
+              SMOKING6      SMOKING6      T6_LADDE
+              ________      ________      ________
+ SMOKING6       0.000
+ SMOKING6       0.000         3.097
+ T6_LADDE       0.000         0.000         0.473
+
+
+<a name='tech9_output' class='heading'>TECHNICAL 9 OUTPUT</a>
+
+
+Errors for replication with data file mi_dataset_MPLUS1.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS2.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS3.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS4.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS5.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS6.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS7.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS8.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS9.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS10.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS11.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS12.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS13.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS14.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS15.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS16.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS17.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS18.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS19.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS20.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS21.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS22.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS23.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS24.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS25.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS26.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS27.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS28.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS29.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS30.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS31.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS32.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS33.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS34.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS35.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS36.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS37.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS38.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS39.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS40.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS41.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS42.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS43.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS44.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS45.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS46.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS47.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS48.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS49.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS50.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS51.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS52.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS53.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS54.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS55.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS56.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS57.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS58.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS59.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS60.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS61.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS62.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS63.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS64.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS65.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS66.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS67.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS68.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS69.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS70.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS71.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS72.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS73.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS74.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS75.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS76.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS77.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS78.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS79.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS80.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS81.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS82.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS83.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS84.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS85.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS86.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS87.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS88.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS89.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS90.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    d:\onedrive - universiteit utrecht\trails prs paper\internal revision 2\scripts\edited datasets\mplus\table s3 26 m1
+
+     Beginning Time:  19:54:16
+        Ending Time:  19:54:18
+       Elapsed Time:  00:00:02
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2023 Muthen & Muthen
+</pre>
+</body>
+</html>

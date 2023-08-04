@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+a:link
+{
+    color: black;
+    text-decoration: none;
+}
+a[name]:hover
+{
+    text-decoration: none;
+}
+a:hover
+{
+    color: blue;
+    text-decoration: underline;
+}
+a:visited
+{
+    color: black;
+    text-decoration: none;
+}
+.heading
+{
+    color: black;
+    font-weight: bold;
+    font-size: 110%;
+}
+.heading:hover
+{
+    color: black;
+    font-weight: bold;
+    font-size: 110%;
+    text-decoration: none;
+}
+</style>
+
+<body style="font-family:'Courier New'; font-size:14px;">
+<p class="heading">
+Mplus VERSION 8.10<br />
+MUTHEN & MUTHEN<br />
+08/04/2023   7:56 PM<br />
+</p>
+
+<p class='heading'>OUTPUT SECTIONS</p>
+
+<ul>
+     <li><a href='#input'>Input Instructions</a></li>
+     <li><a href='#inputmessages'>Input Warnings And Errors</a></li>
+     <li><a href='#summary_analysis'>Summary Of Analysis</a></li>
+     <li><a href='#summary_data'>Summary Of Data For The First Data Set</a></li>
+     <li><a href='#summary_missing_patterns'>Summary Of Missing Data Patterns For The First Data Set</a></li>
+     <li><a href='#covariance_coverage'>Covariance Coverage Of Data For The First Data Set</a></li>
+     <li><a href='#countprops'>Count Proportion Of Zero, Minimum And Maximum Values</a></li>
+     <li><a href='#samplestats'>Sample Statistics</a></li>
+     <li><a href='#model_fit'>Model Fit Information</a></li>
+     <li><a href='#model_results'>Model Results</a></li>
+     <li><a href='#ci_results'>Confidence Intervals Of Model Results</a></li>
+     <li><a href='#tech1_output'>Technical 1 Output</a></li>
+     <li><a href='#tech9_output'>Technical 9 Output</a></li>
+</ul>
+<pre>
+
+<a name='input' class='heading'>INPUT INSTRUCTIONS</a>
+
+  Title:
+    Table S3 22 M2
+
+  Data:
+    FILE IS mi_dataset_MPLUS_implist.dat;
+    TYPE = IMPUTATION;
+  Variable:
+    Names are
+       T1_smok_par_3cat T3_ladder_4cat T4_ladder_4cat T5_ladder_4cat T6_ladder_4cat
+       Zedu_PRS1 Zsmok_PRS1 cohort g1ageyrc g1sex g1wiscdq idno mean_edu_par
+       p1eaefc smoking3_MP smoking4_MP smoking5_MP smoking6_MP;
+    Missing are all (-9999) ;
+
+  Usevariables are smoking5_MP T5_ladder_4cat
+  g1ageyrc g1sex cohort mean_edu_par
+   T1_smok_par_3cat;
+
+
+
+  Count is smoking5_MP (nb);
+
+
+  Model:
+  smoking5_MP ON T5_ladder_4cat
+  g1ageyrc g1sex cohort mean_edu_par
+   T1_smok_par_3cat;
+
+
+
+  Analysis:
+    Estimator = MLR;
+    process = 23;
+
+
+  Output:
+  sampstat cinterval tech9 ;
+
+
+
+
+<a name='inputmessages' class='heading'></a>
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+Table S3 22 M2
+
+<a name='summary_analysis' class='heading'>SUMMARY OF ANALYSIS</a>
+
+Number of groups                                                 1
+Average number of observations                                1581
+
+Number of replications
+    Requested                                                   90
+    Completed                                                   90
+
+Number of dependent variables                                    1
+Number of independent variables                                  6
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Count
+   SMOKING5_M
+
+Observed independent variables
+   T5_LADDE    G1AGEYRC    G1SEX       COHORT      MEAN_EDU    T1_SMOK_
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-02
+    Relative loglikelihood change                        0.100D-05
+    Derivative                                           0.100D-02
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-02
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-02
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Integration Specifications
+  Type                                                    STANDARD
+  Number of integration points                                  15
+  Dimensions of numerical integration                            0
+  Adaptive quadrature                                           ON
+Cholesky                                                       OFF
+
+Input data file(s)
+  Multiple data files from
+    mi_dataset_MPLUS_implist.dat
+Input data format  FREE
+
+
+<a name='summary_data' class='heading'>SUMMARY OF DATA FOR THE FIRST DATA SET</a>
+
+
+
+<a name='summary_missing_patterns' class='heading'>SUMMARY OF MISSING DATA PATTERNS FOR THE FIRST DATA SET</a>
+
+
+<a name='covariance_coverage' class='heading'>COVARIANCE COVERAGE OF DATA FOR THE FIRST DATA SET</a>
+
+Minimum covariance coverage value   0.100
+
+
+<a name='countprops' class='heading'>COUNT PROPORTION OF ZERO, MINIMUM AND MAXIMUM VALUES</a>
+
+      SMOKING5    0.562         0        31
+
+
+<a name='samplestats' class='heading'>SAMPLE STATISTICS</a>
+
+NOTE:  These are average results over 90 data sets.
+
+
+     SAMPLE STATISTICS
+
+
+           Means
+              T5_LADDE      G1AGEYRC      G1SEX         COHORT        MEAN_EDU
+              ________      ________      ________      ________      ________
+                2.624        11.083         0.519         0.211         3.139
+
+
+           Means
+              T1_SMOK_
+              ________
+                0.650
+
+
+           Covariances
+              T5_LADDE      G1AGEYRC      G1SEX         COHORT        MEAN_EDU
+              ________      ________      ________      ________      ________
+ T5_LADDE       0.918
+ G1AGEYRC       0.017         0.293
+ G1SEX         -0.037         0.009         0.250
+ COHORT        -0.071         0.005         0.037         0.166
+ MEAN_EDU       0.405         0.033         0.008        -0.009         0.781
+ T1_SMOK_      -0.140         0.002         0.009        -0.012        -0.138
+
+
+           Covariances
+              T1_SMOK_
+              ________
+ T1_SMOK_       0.598
+
+
+           Correlations
+              T5_LADDE      G1AGEYRC      G1SEX         COHORT        MEAN_EDU
+              ________      ________      ________      ________      ________
+ T5_LADDE       1.000
+ G1AGEYRC       0.032         1.000
+ G1SEX         -0.076         0.033         1.000
+ COHORT        -0.183         0.024         0.183         1.000
+ MEAN_EDU       0.478         0.070         0.018        -0.024         1.000
+ T1_SMOK_      -0.189         0.005         0.023        -0.039        -0.203
+
+
+           Correlations
+              T1_SMOK_
+              ________
+ T1_SMOK_       1.000
+
+
+
+
+<a name='model_fit' class='heading'>MODEL FIT INFORMATION</a>
+
+Number of Free Parameters                        8
+
+Loglikelihood
+
+    H0 Value
+
+        Mean                             -3221.436
+        Std Dev                             29.359
+        Number of successful computations       90
+
+             Proportions                   Percentiles
+        Expected    Observed         Expected       Observed
+           0.990       1.000        -3289.733      -3279.348
+           0.980       1.000        -3281.730      -3279.348
+           0.950       0.944        -3269.728      -3271.892
+           0.900       0.900        -3259.062      -3265.476
+           0.800       0.789        -3246.144      -3249.662
+           0.700       0.689        -3236.832      -3238.623
+           0.500       0.533        -3221.436      -3220.368
+           0.300       0.289        -3206.040      -3208.352
+           0.200       0.200        -3196.728      -3197.799
+           0.100       0.089        -3183.810      -3185.683
+           0.050       0.056        -3173.144      -3175.784
+           0.020       0.022        -3161.142      -3167.571
+           0.010       0.011        -3153.139      -3161.041
+
+Information Criteria
+
+    Akaike (AIC)
+
+        Mean                              6458.872
+        Std Dev                             58.717
+        Number of successful computations       90
+
+             Proportions                   Percentiles
+        Expected    Observed         Expected       Observed
+           0.990       0.989         6322.278       6269.112
+           0.980       0.978         6338.284       6269.112
+           0.950       0.944         6362.288       6351.728
+           0.900       0.911         6383.620       6368.076
+           0.800       0.800         6409.455       6406.692
+           0.700       0.711         6428.080       6430.997
+           0.500       0.467         6458.872       6450.337
+           0.300       0.311         6489.663       6488.636
+           0.200       0.211         6508.288       6508.630
+           0.100       0.100         6534.124       6533.541
+           0.050       0.056         6555.456       6552.245
+           0.020       0.000         6579.459       6560.855
+           0.010       0.000         6595.466       6566.460
+
+    Bayesian (BIC)
+
+        Mean                              6501.798
+        Std Dev                             58.717
+        Number of successful computations       90
+
+             Proportions                   Percentiles
+        Expected    Observed         Expected       Observed
+           0.990       0.989         6365.204       6312.039
+           0.980       0.978         6381.210       6312.039
+           0.950       0.944         6405.214       6394.654
+           0.900       0.911         6426.546       6411.002
+           0.800       0.800         6452.382       6449.619
+           0.700       0.711         6471.007       6473.924
+           0.500       0.467         6501.798       6493.263
+           0.300       0.311         6532.590       6531.562
+           0.200       0.211         6551.215       6551.556
+           0.100       0.100         6577.050       6576.468
+           0.050       0.056         6598.382       6595.172
+           0.020       0.000         6622.386       6603.782
+           0.010       0.000         6638.392       6609.386
+
+    Sample-Size Adjusted BIC (n* = (n + 2) / 24)
+
+        Mean                              6476.384
+        Std Dev                             58.717
+        Number of successful computations       90
+
+             Proportions                   Percentiles
+        Expected    Observed         Expected       Observed
+           0.990       0.989         6339.790       6286.624
+           0.980       0.978         6355.796       6286.624
+           0.950       0.944         6379.800       6369.240
+           0.900       0.911         6401.132       6385.588
+           0.800       0.800         6426.967       6424.204
+           0.700       0.711         6445.593       6448.510
+           0.500       0.467         6476.384       6467.849
+           0.300       0.311         6507.175       6506.148
+           0.200       0.211         6525.800       6526.142
+           0.100       0.100         6551.636       6551.053
+           0.050       0.056         6572.968       6569.757
+           0.020       0.000         6596.972       6578.367
+           0.010       0.000         6612.978       6583.972
+
+
+
+<a name='model_results' class='heading'>MODEL RESULTS</a>
+
+                                                    Two-Tailed   Rate of
+                    Estimate       S.E.  Est./S.E.    P-Value    Missing
+
+ SMOKING5_M ON
+    T5_LADDER_        -0.644      0.068     -9.440      0.000      0.213
+    G1AGEYRC           0.056      0.101      0.552      0.581      0.142
+    G1SEX              0.173      0.104      1.656      0.098      0.114
+    COHORT            -0.025      0.134     -0.186      0.852      0.206
+    MEAN_EDU_P         0.003      0.075      0.043      0.966      0.267
+    T1_SMOK_PA         0.298      0.075      3.977      0.000      0.305
+
+ Intercepts
+    SMOKING5_M         1.974      1.103      1.790      0.073      0.141
+
+ Residual Variances
+    SMOKING5_M         4.546      0.257     17.705      0.000      0.198
+
+ Dispersion
+    SMOKING5_M         4.546      0.257     17.705      0.000      0.198
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Average Condition Number for the Information Matrix      0.146E-04
+       (ratio of smallest to largest eigenvalue)
+
+
+<a name='ci_results' class='heading'>CONFIDENCE INTERVALS OF MODEL RESULTS</a>
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ SMOKING5 ON
+    T5_LADDER_      -0.820      -0.778      -0.757      -0.644      -0.532      -0.511      -0.468
+    G1AGEYRC        -0.205      -0.142      -0.111       0.056       0.222       0.254       0.316
+    G1SEX           -0.096      -0.032       0.001       0.173       0.344       0.377       0.441
+    COHORT          -0.369      -0.287      -0.245      -0.025       0.195       0.237       0.319
+    MEAN_EDU_P      -0.190      -0.144      -0.120       0.003       0.127       0.151       0.197
+    T1_SMOK_PA       0.105       0.151       0.175       0.298       0.421       0.445       0.491
+
+ Intercepts
+    SMOKING5_M      -0.866      -0.187       0.160       1.974       3.788       4.136       4.815
+
+ Residual Variances
+    SMOKING5_M       3.885       4.043       4.124       4.546       4.969       5.050       5.208
+
+
+<a name='tech1_output' class='heading'>TECHNICAL 1 OUTPUT</a>
+
+
+     PARAMETER SPECIFICATION
+
+
+           NU
+              SMOKING5      SMOKING5      T5_LADDE      G1AGEYRC      G1SEX
+              ________      ________      ________      ________      ________
+                    0             0             0             0             0
+
+
+           NU
+              COHORT        MEAN_EDU      T1_SMOK_
+              ________      ________      ________
+                    0             0             0
+
+
+           LAMBDA
+              SMOKING5      SMOKING5      T5_LADDE      G1AGEYRC      G1SEX
+              ________      ________      ________      ________      ________
+ SMOKING5           0             0             0             0             0
+ SMOKING5           0             0             0             0             0
+ T5_LADDE           0             0             0             0             0
+ G1AGEYRC           0             0             0             0             0
+ G1SEX              0             0             0             0             0
+ COHORT             0             0             0             0             0
+ MEAN_EDU           0             0             0             0             0
+ T1_SMOK_           0             0             0             0             0
+
+
+           LAMBDA
+              COHORT        MEAN_EDU      T1_SMOK_
+              ________      ________      ________
+ SMOKING5           0             0             0
+ SMOKING5           0             0             0
+ T5_LADDE           0             0             0
+ G1AGEYRC           0             0             0
+ G1SEX              0             0             0
+ COHORT             0             0             0
+ MEAN_EDU           0             0             0
+ T1_SMOK_           0             0             0
+
+
+           THETA
+              SMOKING5      SMOKING5      T5_LADDE      G1AGEYRC      G1SEX
+              ________      ________      ________      ________      ________
+ SMOKING5           0
+ SMOKING5           0             0
+ T5_LADDE           0             0             0
+ G1AGEYRC           0             0             0             0
+ G1SEX              0             0             0             0             0
+ COHORT             0             0             0             0             0
+ MEAN_EDU           0             0             0             0             0
+ T1_SMOK_           0             0             0             0             0
+
+
+           THETA
+              COHORT        MEAN_EDU      T1_SMOK_
+              ________      ________      ________
+ COHORT             0
+ MEAN_EDU           0             0
+ T1_SMOK_           0             0             0
+
+
+           ALPHA
+              SMOKING5      SMOKING5      T5_LADDE      G1AGEYRC      G1SEX
+              ________      ________      ________      ________      ________
+                    0             1             0             0             0
+
+
+           ALPHA
+              COHORT        MEAN_EDU      T1_SMOK_
+              ________      ________      ________
+                    0             0             0
+
+
+           BETA
+              SMOKING5      SMOKING5      T5_LADDE      G1AGEYRC      G1SEX
+              ________      ________      ________      ________      ________
+ SMOKING5           0             0             0             0             0
+ SMOKING5           0             0             2             3             4
+ T5_LADDE           0             0             0             0             0
+ G1AGEYRC           0             0             0             0             0
+ G1SEX              0             0             0             0             0
+ COHORT             0             0             0             0             0
+ MEAN_EDU           0             0             0             0             0
+ T1_SMOK_           0             0             0             0             0
+
+
+           BETA
+              COHORT        MEAN_EDU      T1_SMOK_
+              ________      ________      ________
+ SMOKING5           0             0             0
+ SMOKING5           5             6             7
+ T5_LADDE           0             0             0
+ G1AGEYRC           0             0             0
+ G1SEX              0             0             0
+ COHORT             0             0             0
+ MEAN_EDU           0             0             0
+ T1_SMOK_           0             0             0
+
+
+           PSI
+              SMOKING5      SMOKING5      T5_LADDE      G1AGEYRC      G1SEX
+              ________      ________      ________      ________      ________
+ SMOKING5           0
+ SMOKING5           0             8
+ T5_LADDE           0             0             0
+ G1AGEYRC           0             0             0             0
+ G1SEX              0             0             0             0             0
+ COHORT             0             0             0             0             0
+ MEAN_EDU           0             0             0             0             0
+ T1_SMOK_           0             0             0             0             0
+
+
+           PSI
+              COHORT        MEAN_EDU      T1_SMOK_
+              ________      ________      ________
+ COHORT             0
+ MEAN_EDU           0             0
+ T1_SMOK_           0             0             0
+
+
+     STARTING VALUES
+
+
+           NU
+              SMOKING5      SMOKING5      T5_LADDE      G1AGEYRC      G1SEX
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              COHORT        MEAN_EDU      T1_SMOK_
+              ________      ________      ________
+                0.000         0.000         0.000
+
+
+           LAMBDA
+              SMOKING5      SMOKING5      T5_LADDE      G1AGEYRC      G1SEX
+              ________      ________      ________      ________      ________
+ SMOKING5       1.000         0.000         0.000         0.000         0.000
+ SMOKING5       0.000         1.000         0.000         0.000         0.000
+ T5_LADDE       0.000         0.000         1.000         0.000         0.000
+ G1AGEYRC       0.000         0.000         0.000         1.000         0.000
+ G1SEX          0.000         0.000         0.000         0.000         1.000
+ COHORT         0.000         0.000         0.000         0.000         0.000
+ MEAN_EDU       0.000         0.000         0.000         0.000         0.000
+ T1_SMOK_       0.000         0.000         0.000         0.000         0.000
+
+
+           LAMBDA
+              COHORT        MEAN_EDU      T1_SMOK_
+              ________      ________      ________
+ SMOKING5       0.000         0.000         0.000
+ SMOKING5       0.000         0.000         0.000
+ T5_LADDE       0.000         0.000         0.000
+ G1AGEYRC       0.000         0.000         0.000
+ G1SEX          0.000         0.000         0.000
+ COHORT         1.000         0.000         0.000
+ MEAN_EDU       0.000         1.000         0.000
+ T1_SMOK_       0.000         0.000         1.000
+
+
+           THETA
+              SMOKING5      SMOKING5      T5_LADDE      G1AGEYRC      G1SEX
+              ________      ________      ________      ________      ________
+ SMOKING5       0.000
+ SMOKING5       0.000         0.000
+ T5_LADDE       0.000         0.000         0.000
+ G1AGEYRC       0.000         0.000         0.000         0.000
+ G1SEX          0.000         0.000         0.000         0.000         0.000
+ COHORT         0.000         0.000         0.000         0.000         0.000
+ MEAN_EDU       0.000         0.000         0.000         0.000         0.000
+ T1_SMOK_       0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              COHORT        MEAN_EDU      T1_SMOK_
+              ________      ________      ________
+ COHORT         0.000
+ MEAN_EDU       0.000         0.000
+ T1_SMOK_       0.000         0.000         0.000
+
+
+           ALPHA
+              SMOKING5      SMOKING5      T5_LADDE      G1AGEYRC      G1SEX
+              ________      ________      ________      ________      ________
+              -20.000         2.711         0.000         0.000         0.000
+
+
+           ALPHA
+              COHORT        MEAN_EDU      T1_SMOK_
+              ________      ________      ________
+                0.000         0.000         0.000
+
+
+           BETA
+              SMOKING5      SMOKING5      T5_LADDE      G1AGEYRC      G1SEX
+              ________      ________      ________      ________      ________
+ SMOKING5       0.000         0.000         0.000         0.000         0.000
+ SMOKING5       0.000         0.000         0.000         0.000         0.000
+ T5_LADDE       0.000         0.000         0.000         0.000         0.000
+ G1AGEYRC       0.000         0.000         0.000         0.000         0.000
+ G1SEX          0.000         0.000         0.000         0.000         0.000
+ COHORT         0.000         0.000         0.000         0.000         0.000
+ MEAN_EDU       0.000         0.000         0.000         0.000         0.000
+ T1_SMOK_       0.000         0.000         0.000         0.000         0.000
+
+
+           BETA
+              COHORT        MEAN_EDU      T1_SMOK_
+              ________      ________      ________
+ SMOKING5       0.000         0.000         0.000
+ SMOKING5       0.000         0.000         0.000
+ T5_LADDE       0.000         0.000         0.000
+ G1AGEYRC       0.000         0.000         0.000
+ G1SEX          0.000         0.000         0.000
+ COHORT         0.000         0.000         0.000
+ MEAN_EDU       0.000         0.000         0.000
+ T1_SMOK_       0.000         0.000         0.000
+
+
+           PSI
+              SMOKING5      SMOKING5      T5_LADDE      G1AGEYRC      G1SEX
+              ________      ________      ________      ________      ________
+ SMOKING5       0.000
+ SMOKING5       0.000         2.625
+ T5_LADDE       0.000         0.000         0.458
+ G1AGEYRC       0.000         0.000         0.000         0.147
+ G1SEX          0.000         0.000         0.000         0.000         0.125
+ COHORT         0.000         0.000         0.000         0.000         0.000
+ MEAN_EDU       0.000         0.000         0.000         0.000         0.000
+ T1_SMOK_       0.000         0.000         0.000         0.000         0.000
+
+
+           PSI
+              COHORT        MEAN_EDU      T1_SMOK_
+              ________      ________      ________
+ COHORT         0.083
+ MEAN_EDU       0.000         0.391
+ T1_SMOK_       0.000         0.000         0.296
+
+
+<a name='tech9_output' class='heading'>TECHNICAL 9 OUTPUT</a>
+
+
+Errors for replication with data file mi_dataset_MPLUS1.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS2.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS3.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS4.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS5.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS6.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS7.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS8.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS9.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS10.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS11.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS12.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS13.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS14.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS15.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS16.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS17.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS18.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS19.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS20.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS21.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS22.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS23.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS24.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS25.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS26.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS27.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS28.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS29.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS30.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS31.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS32.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS33.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS34.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS35.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS36.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS37.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS38.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS39.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS40.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS41.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS42.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS43.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS44.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS45.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS46.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS47.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS48.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS49.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS50.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS51.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS52.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS53.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS54.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS55.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS56.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS57.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS58.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS59.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS60.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS61.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS62.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS63.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS64.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS65.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS66.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS67.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS68.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS69.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS70.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS71.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS72.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS73.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS74.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS75.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS76.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS77.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS78.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS79.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS80.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS81.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS82.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS83.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS84.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS85.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS86.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS87.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS88.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS89.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS90.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    d:\onedrive - universiteit utrecht\trails prs paper\internal revision 2\scripts\edited datasets\mplus\table s3 22 m2
+
+     Beginning Time:  19:56:17
+        Ending Time:  19:56:21
+       Elapsed Time:  00:00:04
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2023 Muthen & Muthen
+</pre>
+</body>
+</html>
