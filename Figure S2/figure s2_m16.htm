@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+a:link
+{
+    color: black;
+    text-decoration: none;
+}
+a[name]:hover
+{
+    text-decoration: none;
+}
+a:hover
+{
+    color: blue;
+    text-decoration: underline;
+}
+a:visited
+{
+    color: black;
+    text-decoration: none;
+}
+.heading
+{
+    color: black;
+    font-weight: bold;
+    font-size: 110%;
+}
+.heading:hover
+{
+    color: black;
+    font-weight: bold;
+    font-size: 110%;
+    text-decoration: none;
+}
+</style>
+
+<body style="font-family:'Courier New'; font-size:14px;">
+<p class="heading">
+Mplus VERSION 8.10<br />
+MUTHEN & MUTHEN<br />
+08/04/2023   7:02 PM<br />
+</p>
+
+<p class='heading'>OUTPUT SECTIONS</p>
+
+<ul>
+     <li><a href='#input'>Input Instructions</a></li>
+     <li><a href='#inputmessages'>Input Warnings And Errors</a></li>
+     <li><a href='#summary_analysis'>Summary Of Analysis</a></li>
+     <li><a href='#summary_data'>Summary Of Data For The First Data Set</a></li>
+     <li><a href='#summary_missing_patterns'>Summary Of Missing Data Patterns For The First Data Set</a></li>
+     <li><a href='#covariance_coverage'>Covariance Coverage Of Data For The First Data Set</a></li>
+     <li><a href='#catprops'>Univariate Proportions For Categorical Variables</a></li>
+     <li><a href='#samplestats'>Sample Statistics</a></li>
+     <li><a href='#model_fit'>Model Fit Information</a></li>
+     <li><a href='#model_results'>Model Results</a></li>
+     <li><a href='#indirect_results'>Total, Total Indirect, Specific Indirect, And Direct Effects</a></li>
+     <li><a href='#ci_results'>Confidence Intervals Of Model Results</a></li>
+     <li><a href='#ci_indirect'>Confidence Intervals Of Total, Total Indirect, Specific Indirect, And Direct Effects</a></li>
+     <li><a href='#tech1_output'>Technical 1 Output</a></li>
+     <li><a href='#tech9_output'>Technical 9 Output</a></li>
+</ul>
+<pre>
+
+<a name='input' class='heading'>INPUT INSTRUCTIONS</a>
+
+  Title:
+    Figure S2 M16
+
+  Data:
+    FILE IS mi_dataset_MPLUS_implist.dat;
+    TYPE = IMPUTATION;
+  Variable:
+    Names are
+       T1_smok_par_3cat T3_ladder_4cat T4_ladder_4cat T5_ladder_4cat T6_ladder_4cat
+       Zedu_PRS1 Zsmok_PRS1 cohort g1ageyrc g1sex g1wiscdq idno mean_edu_par
+       p1eaefc smoking3_MP smoking4_MP smoking5_MP smoking6_MP;
+    Missing are all (-9999) ;
+
+  Usevariables are smoking3_MP Zedu_PRS1 Zsmok_PRS1 p1eaefc g1wiscdq
+    T3_ladder_4cat g1ageyrc g1sex cohort mean_edu_par
+   T1_smok_par_3cat;
+
+  Categorical are T3_ladder_4cat smoking3_MP;
+
+  Define:
+  Cut smoking3_MP (2);
+
+
+  Model:
+  ! outcome
+  smoking3_MP ON T3_ladder_4cat Zedu_PRS1 Zsmok_PRS1 p1eaefc g1wiscdq
+  g1ageyrc g1sex cohort mean_edu_par
+   T1_smok_par_3cat;
+
+  ! mediators
+
+  p1eaefc g1wiscdq ON Zedu_PRS1 Zsmok_PRS1
+  g1ageyrc g1sex cohort mean_edu_par
+   T1_smok_par_3cat;
+
+  T3_ladder_4cat ON p1eaefc g1wiscdq Zedu_PRS1 Zsmok_PRS1
+  g1ageyrc g1sex cohort mean_edu_par
+   T1_smok_par_3cat;
+
+   ! correlations
+  p1eaefc WITH g1wiscdq;
+
+
+
+  Model indirect:
+  smoking3_MP IND Zsmok_PRS1;
+  smoking3_MP IND Zedu_PRS1;
+
+  T3_ladder_4cat IND Zsmok_PRS1;
+  T3_ladder_4cat IND Zedu_PRS1;
+
+
+  Analysis:
+    Estimator = WLSMV;
+    Parameterization = theta;
+    process = 23;
+    conv=0.00001;
+
+  Output:
+  sampstat cinterval tech9;
+
+
+
+
+<a name='inputmessages' class='heading'></a>
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+Figure S2 M16
+
+<a name='summary_analysis' class='heading'>SUMMARY OF ANALYSIS</a>
+
+Number of groups                                                 1
+Average number of observations                                1581
+
+Number of replications
+    Requested                                                   90
+    Completed                                                   90
+
+Number of dependent variables                                    4
+Number of independent variables                                  7
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Continuous
+   P1EAEFC     G1WISCDQ
+
+  Binary and ordered categorical (ordinal)
+   SMOKING3    T3_LADDE
+
+Observed independent variables
+   ZEDU_PRS    ZSMOK_PR    G1AGEYRC    G1SEX       COHORT      MEAN_EDU
+   T1_SMOK_
+
+
+Estimator                                                    WLSMV
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.100D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Parameterization                                             THETA
+Link                                                        PROBIT
+
+Input data file(s)
+  Multiple data files from
+    mi_dataset_MPLUS_implist.dat
+
+Input data format  FREE
+
+
+<a name='summary_data' class='heading'>SUMMARY OF DATA FOR THE FIRST DATA SET</a>
+
+     Number of missing data patterns             1
+
+
+<a name='summary_missing_patterns' class='heading'>SUMMARY OF MISSING DATA PATTERNS FOR THE FIRST DATA SET</a>
+
+
+     MISSING DATA PATTERNS (x = not missing)
+
+           1
+ SMOKING3  x
+ P1EAEFC   x
+ G1WISCDQ  x
+ T3_LADDE  x
+
+
+     MISSING DATA PATTERN FREQUENCIES
+
+    Pattern   Frequency
+          1        1581
+
+
+<a name='covariance_coverage' class='heading'>COVARIANCE COVERAGE OF DATA FOR THE FIRST DATA SET</a>
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              SMOKING3      P1EAEFC       G1WISCDQ      T3_LADDE
+              ________      ________      ________      ________
+ SMOKING3       1.000
+ P1EAEFC        1.000         1.000
+ G1WISCDQ       1.000         1.000         1.000
+ T3_LADDE       1.000         1.000         1.000         1.000
+
+
+<a name='catprops' class='heading'>UNIVARIATE PROPORTIONS FOR CATEGORICAL VARIABLES</a>
+
+NOTE:  These are average results over 90 data sets.
+
+    SMOKING3
+      Category 1    0.780
+      Category 2    0.220
+    T3_LADDE
+      Category 1    0.270
+      Category 2    0.291
+      Category 3    0.214
+      Category 4    0.225
+
+
+<a name='samplestats' class='heading'>SAMPLE STATISTICS</a>
+
+NOTE:  These are average results over 90 data sets.
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means/Intercepts/Thresholds
+              SMOKING3      P1EAEFC       G1WISCDQ      T3_LADDE      T3_LADDE
+              ________      ________      ________      ________      ________
+                1.434         2.387        91.514         2.164         3.109
+
+
+           Means/Intercepts/Thresholds
+              T3_LADDE
+              ________
+                3.876
+
+
+           Slopes
+              ZEDU_PRS      ZSMOK_PR      G1AGEYRC      G1SEX         COHORT
+              ________      ________      ________      ________      ________
+ SMOKING3       0.167         0.239         0.094        -0.183         0.024
+ P1EAEFC       -0.064        -0.046         0.061        -0.266        -0.516
+ G1WISCDQ      -3.223         0.526        -0.637         2.331        -1.725
+ T3_LADDE      -0.290        -0.050         0.127        -0.124        -0.477
+
+
+           Slopes
+              MEAN_EDU      T1_SMOK_
+              ________      ________
+ SMOKING3      -0.158         0.195
+ P1EAEFC        0.098        -0.036
+ G1WISCDQ       4.714        -0.598
+ T3_LADDE       0.557        -0.086
+
+
+           Covariances/Correlations/Residual Correlations
+              SMOKING3      P1EAEFC       G1WISCDQ      T3_LADDE
+              ________      ________      ________      ________
+ SMOKING3
+ P1EAEFC       -0.153         0.426
+ G1WISCDQ      -0.130         0.185       176.394
+ T3_LADDE      -0.275         0.430         0.539
+
+
+<a name='model_fit' class='heading'>MODEL FIT INFORMATION</a>
+
+Number of Free Parameters                       42
+
+Chi-Square Test of Model Fit
+
+        Degrees of freedom                       0
+
+        Mean                                 0.000
+        Std Dev                              0.000
+        Number of successful computations       90
+
+             Proportions                   Percentiles
+        Expected    Observed         Expected       Observed
+           0.990       1.000            0.000          0.000
+           0.980       1.000            0.000          0.000
+           0.950       1.000            0.000          0.000
+           0.900       1.000            0.000          0.000
+           0.800       1.000            0.000          0.000
+           0.700       1.000            0.000          0.000
+           0.500       1.000            0.000          0.000
+           0.300       1.000            0.000          0.000
+           0.200       1.000            0.000          0.000
+           0.100       1.000            0.000          0.000
+           0.050       1.000            0.000          0.000
+           0.020       1.000            0.000          0.000
+           0.010       1.000            0.000          0.000
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+        Mean                                 0.000
+        Std Dev                              0.000
+        Number of successful computations       90
+
+        Cumulative Distribution Function
+           Value    Function Value
+           0.990       1.000
+           0.980       1.000
+           0.950       1.000
+           0.900       1.000
+           0.800       1.000
+           0.700       1.000
+           0.500       1.000
+           0.300       1.000
+           0.200       1.000
+           0.100       1.000
+           0.050       1.000
+           0.020       1.000
+           0.010       1.000
+
+CFI/TLI
+
+    CFI
+
+        Mean                                 1.000
+        Std Dev                              0.000
+        Number of successful computations       90
+
+        Cumulative Distribution Function
+           Value    Function Value
+           0.990       0.000
+           0.980       0.000
+           0.950       0.000
+           0.900       0.000
+           0.800       0.000
+           0.700       0.000
+           0.500       0.000
+           0.300       0.000
+           0.200       0.000
+           0.100       0.000
+           0.050       0.000
+           0.020       0.000
+           0.010       0.000
+
+    TLI
+
+        Mean                                 1.000
+        Std Dev                              0.000
+        Number of successful computations       90
+
+        Cumulative Distribution Function
+           Value    Function Value
+           0.990       0.000
+           0.980       0.000
+           0.950       0.000
+           0.900       0.000
+           0.800       0.000
+           0.700       0.000
+           0.500       0.000
+           0.300       0.000
+           0.200       0.000
+           0.100       0.000
+           0.050       0.000
+           0.020       0.000
+           0.010       0.000
+
+SRMR (Standardized Root Mean Square Residual)
+
+        Mean                                 0.000
+        Std Dev                              0.001
+        Number of successful computations       90
+
+        Cumulative Distribution Function
+           Value    Function Value
+           0.990       1.000
+           0.980       1.000
+           0.950       1.000
+           0.900       1.000
+           0.800       1.000
+           0.700       1.000
+           0.500       1.000
+           0.300       1.000
+           0.200       1.000
+           0.100       1.000
+           0.050       1.000
+           0.020       1.000
+           0.010       1.000
+
+
+<a name='model_results' class='heading'>MODEL RESULTS</a>
+
+                                                    Two-Tailed   Rate of
+                    Estimate       S.E.  Est./S.E.    P-Value    Missing
+
+ SMOKING3 ON
+    T3_LADDER_        -0.217      0.049     -4.448      0.000      0.188
+    ZEDU_PRS1          0.094      0.047      1.989      0.047      0.033
+    ZSMOK_PRS1         0.231      0.044      5.279      0.000      0.069
+    P1EAEFC           -0.065      0.072     -0.911      0.362      0.143
+    G1WISCDQ           0.002      0.004      0.476      0.634      0.108
+    G1AGEYRC           0.139      0.074      1.871      0.061      0.043
+    G1SEX             -0.247      0.082     -3.009      0.003      0.046
+    COHORT            -0.140      0.104     -1.347      0.178      0.069
+    MEAN_EDU_P        -0.010      0.059     -0.163      0.871      0.195
+    T1_SMOK_PA         0.177      0.057      3.138      0.002      0.260
+
+ P1EAEFC  ON
+    ZEDU_PRS1         -0.064      0.018     -3.542      0.000      0.055
+    ZSMOK_PRS1        -0.046      0.018     -2.520      0.012      0.048
+    G1AGEYRC           0.061      0.032      1.935      0.053      0.048
+    G1SEX             -0.266      0.034     -7.712      0.000      0.068
+    COHORT            -0.516      0.040    -12.792      0.000      0.039
+    MEAN_EDU_P         0.098      0.022      4.466      0.000      0.143
+    T1_SMOK_PA        -0.036      0.024     -1.490      0.136      0.152
+
+ G1WISCDQ ON
+    ZEDU_PRS1         -3.223      0.372     -8.671      0.000      0.018
+    ZSMOK_PRS1         0.526      0.361      1.458      0.145      0.012
+    G1AGEYRC          -0.637      0.645     -0.988      0.323      0.012
+    G1SEX              2.331      0.701      3.324      0.001      0.013
+    COHORT            -1.725      0.809     -2.131      0.033      0.012
+    MEAN_EDU_P         4.714      0.451     10.452      0.000      0.113
+    T1_SMOK_PA        -0.598      0.490     -1.221      0.222      0.154
+
+ T3_LADDE ON
+    P1EAEFC            0.678      0.050     13.612      0.000      0.217
+    G1WISCDQ           0.046      0.003     16.846      0.000      0.186
+    ZEDU_PRS1         -0.183      0.036     -5.138      0.000      0.152
+    ZSMOK_PRS1        -0.058      0.035     -1.644      0.100      0.187
+    G1AGEYRC           0.153      0.060      2.567      0.010      0.138
+    G1SEX             -0.089      0.066     -1.359      0.174      0.115
+    COHORT            -0.188      0.086     -2.195      0.028      0.181
+    MEAN_EDU_P         0.435      0.040     10.787      0.000      0.193
+    T1_SMOK_PA        -0.059      0.046     -1.295      0.195      0.246
+
+ P1EAEFC  WITH
+    G1WISCDQ           1.602      0.228      7.019      0.000      0.080
+
+ Intercepts
+    P1EAEFC            2.387      0.352      6.776      0.000      0.052
+    G1WISCDQ          91.511      7.233     12.652      0.000      0.011
+
+ Thresholds
+    SMOKING3$1         0.228      0.881      0.259      0.796      0.043
+    T3_LADDE$1         8.671      0.758     11.442      0.000      0.167
+    T3_LADDE$2         9.895      0.767     12.909      0.000      0.171
+    T3_LADDE$3        10.888      0.777     14.010      0.000      0.174
+
+ Residual Variances
+    P1EAEFC            0.426      0.017     25.548      0.000      0.062
+    G1WISCDQ         176.404      6.132     28.769      0.000      0.028
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Average Condition Number for the Information Matrix      0.622E-05
+       (ratio of smallest to largest eigenvalue)
+
+
+<a name='indirect_results' class='heading'>TOTAL, TOTAL INDIRECT, SPECIFIC INDIRECT, AND DIRECT EFFECTS</a>
+
+
+                                                    Two-Tailed   Rate of
+                    Estimate       S.E.  Est./S.E.    P-Value    Missing
+
+Effects from ZSMOK_PR to SMOKING3
+
+  Total                0.249      0.044      5.636      0.000      0.071
+  Total indirect       0.018      0.011      1.690      0.091      0.138
+
+  Specific indirect 1
+    SMOKING3
+    P1EAEFC
+    ZSMOK_PR           0.003      0.004      0.851      0.395      0.126
+
+  Specific indirect 2
+    SMOKING3
+    G1WISCDQ
+    ZSMOK_PR           0.001      0.002      0.439      0.660      0.095
+
+  Specific indirect 3
+    SMOKING3
+    T3_LADDE
+    ZSMOK_PR           0.013      0.008      1.517      0.129      0.197
+
+  Specific indirect 4
+    SMOKING3
+    T3_LADDE
+    P1EAEFC
+    ZSMOK_PR           0.007      0.003      2.156      0.031      0.083
+
+  Specific indirect 5
+    SMOKING3
+    T3_LADDE
+    G1WISCDQ
+    ZSMOK_PR          -0.005      0.004     -1.363      0.173      0.026
+
+  Direct
+    SMOKING3
+    ZSMOK_PR           0.231      0.044      5.279      0.000      0.069
+
+
+Effects from ZEDU_PRS to SMOKING3
+
+  Total                0.174      0.047      3.741      0.000      0.041
+  Total indirect       0.080      0.016      4.875      0.000      0.123
+
+  Specific indirect 1
+    SMOKING3
+    P1EAEFC
+    ZEDU_PRS           0.004      0.005      0.875      0.382      0.135
+
+  Specific indirect 2
+    SMOKING3
+    G1WISCDQ
+    ZEDU_PRS          -0.006      0.012     -0.475      0.635      0.108
+
+  Specific indirect 3
+    SMOKING3
+    T3_LADDE
+    ZEDU_PRS           0.040      0.012      3.355      0.001      0.169
+
+  Specific indirect 4
+    SMOKING3
+    T3_LADDE
+    P1EAEFC
+    ZEDU_PRS           0.009      0.003      2.734      0.006      0.111
+
+  Specific indirect 5
+    SMOKING3
+    T3_LADDE
+    G1WISCDQ
+    ZEDU_PRS           0.033      0.008      3.873      0.000      0.175
+
+  Direct
+    SMOKING3
+    ZEDU_PRS           0.094      0.047      1.989      0.047      0.033
+
+
+Effects from ZSMOK_PR to T3_LADDE
+
+  Total               -0.064      0.042     -1.535      0.125      0.148
+  Total indirect      -0.007      0.023     -0.293      0.769      0.025
+
+  Specific indirect 1
+    T3_LADDE
+    P1EAEFC
+    ZSMOK_PR          -0.031      0.013     -2.476      0.013      0.057
+
+  Specific indirect 2
+    T3_LADDE
+    G1WISCDQ
+    ZSMOK_PR           0.024      0.017      1.453      0.146      0.013
+
+  Direct
+    T3_LADDE
+    ZSMOK_PR          -0.058      0.035     -1.644      0.100      0.187
+
+
+Effects from ZEDU_PRS to T3_LADDE
+
+  Total               -0.376      0.043     -8.782      0.000      0.112
+  Total indirect      -0.193      0.025     -7.823      0.000      0.064
+
+  Specific indirect 1
+    T3_LADDE
+    P1EAEFC
+    ZEDU_PRS          -0.043      0.013     -3.417      0.001      0.071
+
+  Specific indirect 2
+    T3_LADDE
+    G1WISCDQ
+    ZEDU_PRS          -0.150      0.019     -7.688      0.000      0.058
+
+  Direct
+    T3_LADDE
+    ZEDU_PRS          -0.183      0.036     -5.138      0.000      0.152
+
+
+
+<a name='ci_results' class='heading'>CONFIDENCE INTERVALS OF MODEL RESULTS</a>
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ SMOKING3 ON
+    T3_LADDER_      -0.343      -0.313      -0.298      -0.217      -0.137      -0.122      -0.092
+    ZEDU_PRS1       -0.028       0.001       0.016       0.094       0.172       0.187       0.216
+    ZSMOK_PRS1       0.118       0.145       0.159       0.231       0.303       0.316       0.343
+    P1EAEFC         -0.251      -0.206      -0.184      -0.065       0.053       0.075       0.120
+    G1WISCDQ        -0.008      -0.006      -0.004       0.002       0.008       0.009       0.012
+    G1AGEYRC        -0.052      -0.007       0.017       0.139       0.261       0.284       0.330
+    G1SEX           -0.458      -0.408      -0.382      -0.247      -0.112      -0.086      -0.036
+    COHORT          -0.409      -0.345      -0.312      -0.140       0.031       0.064       0.128
+    MEAN_EDU_P      -0.162      -0.125      -0.107      -0.010       0.088       0.106       0.142
+    T1_SMOK_PA       0.032       0.067       0.084       0.177       0.270       0.288       0.323
+
+ P1EAEFC  ON
+    ZEDU_PRS1       -0.110      -0.099      -0.093      -0.064      -0.034      -0.028      -0.017
+    ZSMOK_PRS1      -0.092      -0.081      -0.076      -0.046      -0.016      -0.010       0.001
+    G1AGEYRC        -0.020      -0.001       0.009       0.061       0.113       0.123       0.143
+    G1SEX           -0.355      -0.333      -0.323      -0.266      -0.209      -0.198      -0.177
+    COHORT          -0.620      -0.595      -0.582      -0.516      -0.449      -0.437      -0.412
+    MEAN_EDU_P       0.042       0.055       0.062       0.098       0.134       0.141       0.155
+    T1_SMOK_PA      -0.099      -0.084      -0.076      -0.036       0.004       0.011       0.026
+
+ G1WISCDQ ON
+    ZEDU_PRS1       -4.181      -3.952      -3.835      -3.223      -2.612      -2.495      -2.266
+    ZSMOK_PRS1      -0.403      -0.181      -0.068       0.526       1.119       1.233       1.455
+    G1AGEYRC        -2.298      -1.901      -1.698      -0.637       0.424       0.627       1.024
+    G1SEX            0.525       0.957       1.178       2.331       3.485       3.706       4.138
+    COHORT          -3.809      -3.311      -3.056      -1.725      -0.394      -0.139       0.360
+    MEAN_EDU_P       3.552       3.830       3.972       4.714       5.456       5.598       5.876
+    T1_SMOK_PA      -1.861      -1.559      -1.405      -0.598       0.208       0.363       0.664
+
+ T3_LADDE ON
+    P1EAEFC          0.550       0.581       0.596       0.678       0.760       0.776       0.807
+    G1WISCDQ         0.039       0.041       0.042       0.046       0.051       0.052       0.054
+    ZEDU_PRS1       -0.275      -0.253      -0.242      -0.183      -0.125      -0.113      -0.091
+    ZSMOK_PRS1      -0.148      -0.127      -0.115      -0.058       0.000       0.011       0.033
+    G1AGEYRC        -0.001       0.036       0.055       0.153       0.251       0.270       0.307
+    G1SEX           -0.258      -0.218      -0.197      -0.089       0.019       0.039       0.080
+    COHORT          -0.409      -0.356      -0.329      -0.188      -0.047      -0.020       0.033
+    MEAN_EDU_P       0.332       0.356       0.369       0.435       0.502       0.515       0.539
+    T1_SMOK_PA      -0.177      -0.149      -0.135      -0.059       0.016       0.030       0.059
+
+ P1EAEFC  WITH
+    G1WISCDQ         1.014       1.154       1.226       1.602       1.977       2.049       2.190
+
+ Intercepts
+    P1EAEFC          1.480       1.697       1.808       2.387       2.967       3.078       3.295
+    G1WISCDQ        72.880      77.334      79.612      91.511     103.410     105.688     110.142
+
+ Thresholds
+    SMOKING3$1      -2.042      -1.499      -1.222       0.228       1.678       1.956       2.499
+    T3_LADDE$1       6.719       7.186       7.424       8.671       9.917      10.156      10.623
+    T3_LADDE$2       7.921       8.393       8.634       9.895      11.156      11.397      11.869
+    T3_LADDE$3       8.887       9.365       9.610      10.888      12.167      12.412      12.890
+
+ Residual Variances
+    P1EAEFC          0.383       0.393       0.398       0.426       0.453       0.458       0.469
+    G1WISCDQ       160.610     164.386     166.317     176.404     186.491     188.422     192.198
+
+
+<a name='ci_indirect' class='heading'>CONFIDENCE INTERVALS OF TOTAL, TOTAL INDIRECT, SPECIFIC INDIRECT, AND DIRECT EFFECTS</a>
+
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+Effects from ZSMOK_PR to SMOKING3
+
+  Total              0.135       0.162       0.176       0.249       0.321       0.335       0.362
+  Total indirect    -0.009      -0.003       0.000       0.018       0.036       0.039       0.045
+
+  Specific indirect 1
+    SMOKING3
+    P1EAEFC
+    ZSMOK_PR        -0.006      -0.004      -0.003       0.003       0.009       0.010       0.012
+
+  Specific indirect 2
+    SMOKING3
+    G1WISCDQ
+    ZSMOK_PR        -0.005      -0.003      -0.003       0.001       0.005       0.005       0.007
+
+  Specific indirect 3
+    SMOKING3
+    T3_LADDE
+    ZSMOK_PR        -0.009      -0.004      -0.001       0.013       0.026       0.029       0.034
+
+  Specific indirect 4
+    SMOKING3
+    T3_LADDE
+    P1EAEFC
+    ZSMOK_PR        -0.001       0.001       0.002       0.007       0.012       0.013       0.015
+
+  Specific indirect 5
+    SMOKING3
+    T3_LADDE
+    G1WISCDQ
+    ZSMOK_PR        -0.015      -0.013      -0.012      -0.005       0.001       0.002       0.005
+
+  Direct
+    SMOKING3
+    ZSMOK_PR         0.118       0.145       0.159       0.231       0.303       0.316       0.343
+
+
+Effects from ZEDU_PRS to SMOKING3
+
+  Total              0.054       0.083       0.098       0.174       0.251       0.265       0.294
+  Total indirect     0.038       0.048       0.053       0.080       0.107       0.112       0.122
+
+  Specific indirect 1
+    SMOKING3
+    P1EAEFC
+    ZEDU_PRS        -0.008      -0.005      -0.004       0.004       0.012       0.014       0.016
+
+  Specific indirect 2
+    SMOKING3
+    G1WISCDQ
+    ZEDU_PRS        -0.038      -0.030      -0.026      -0.006       0.015       0.018       0.026
+
+  Specific indirect 3
+    SMOKING3
+    T3_LADDE
+    ZEDU_PRS         0.009       0.017       0.020       0.040       0.059       0.063       0.070
+
+  Specific indirect 4
+    SMOKING3
+    T3_LADDE
+    P1EAEFC
+    ZEDU_PRS         0.001       0.003       0.004       0.009       0.015       0.016       0.018
+
+  Specific indirect 5
+    SMOKING3
+    T3_LADDE
+    G1WISCDQ
+    ZEDU_PRS         0.011       0.016       0.019       0.033       0.046       0.049       0.054
+
+  Direct
+    SMOKING3
+    ZEDU_PRS        -0.028       0.001       0.016       0.094       0.172       0.187       0.216
+
+
+Effects from ZSMOK_PR to T3_LADDE
+
+  Total             -0.172      -0.147      -0.133      -0.064       0.005       0.018       0.044
+  Total indirect    -0.065      -0.051      -0.044      -0.007       0.030       0.038       0.051
+
+  Specific indirect 1
+    T3_LADDE
+    P1EAEFC
+    ZSMOK_PR        -0.063      -0.056      -0.052      -0.031      -0.010      -0.006       0.001
+
+  Specific indirect 2
+    T3_LADDE
+    G1WISCDQ
+    ZSMOK_PR        -0.019      -0.009      -0.003       0.024       0.052       0.057       0.068
+
+  Direct
+    T3_LADDE
+    ZSMOK_PR        -0.148      -0.127      -0.115      -0.058       0.000       0.011       0.033
+
+
+Effects from ZEDU_PRS to T3_LADDE
+
+  Total             -0.486      -0.460      -0.447      -0.376      -0.306      -0.292      -0.266
+  Total indirect    -0.256      -0.241      -0.234      -0.193      -0.152      -0.145      -0.129
+
+  Specific indirect 1
+    T3_LADDE
+    P1EAEFC
+    ZEDU_PRS        -0.076      -0.068      -0.064      -0.043      -0.022      -0.018      -0.011
+
+  Specific indirect 2
+    T3_LADDE
+    G1WISCDQ
+    ZEDU_PRS        -0.200      -0.188      -0.182      -0.150      -0.118      -0.111      -0.100
+
+  Direct
+    T3_LADDE
+    ZEDU_PRS        -0.275      -0.253      -0.242      -0.183      -0.125      -0.113      -0.091
+
+
+
+<a name='tech1_output' class='heading'>TECHNICAL 1 OUTPUT</a>
+
+
+     PARAMETER SPECIFICATION
+
+
+           TAU
+              SMOKING3      T3_LADDE      T3_LADDE      T3_LADDE
+              ________      ________      ________      ________
+                  1             2             3             4
+
+
+           NU
+              SMOKING3      P1EAEFC       G1WISCDQ      T3_LADDE
+              ________      ________      ________      ________
+                  0             0             0             0
+
+
+           LAMBDA
+              SMOKING3      P1EAEFC       G1WISCDQ      T3_LADDE
+              ________      ________      ________      ________
+ SMOKING3           0             0             0             0
+ P1EAEFC            0             0             0             0
+ G1WISCDQ           0             0             0             0
+ T3_LADDE           0             0             0             0
+
+
+           THETA
+              SMOKING3      P1EAEFC       G1WISCDQ      T3_LADDE
+              ________      ________      ________      ________
+ SMOKING3           0
+ P1EAEFC            0             0
+ G1WISCDQ           0             0             0
+ T3_LADDE           0             0             0             0
+
+
+           ALPHA
+              SMOKING3      P1EAEFC       G1WISCDQ      T3_LADDE
+              ________      ________      ________      ________
+                  0             5             6             0
+
+
+           BETA
+              SMOKING3      P1EAEFC       G1WISCDQ      T3_LADDE
+              ________      ________      ________      ________
+ SMOKING3           0             7             8             9
+ P1EAEFC            0             0             0             0
+ G1WISCDQ           0             0             0             0
+ T3_LADDE           0            10            11             0
+
+
+           GAMMA
+              ZEDU_PRS      ZSMOK_PR      G1AGEYRC      G1SEX         COHORT
+              ________      ________      ________      ________      ________
+ SMOKING3          12            13            14            15            16
+ P1EAEFC           19            20            21            22            23
+ G1WISCDQ          26            27            28            29            30
+ T3_LADDE          33            34            35            36            37
+
+
+           GAMMA
+              MEAN_EDU      T1_SMOK_
+              ________      ________
+ SMOKING3          17            18
+ P1EAEFC           24            25
+ G1WISCDQ          31            32
+ T3_LADDE          38            39
+
+
+           PSI
+              SMOKING3      P1EAEFC       G1WISCDQ      T3_LADDE
+              ________      ________      ________      ________
+ SMOKING3           0
+ P1EAEFC            0            40
+ G1WISCDQ           0            41            42
+ T3_LADDE           0             0             0             0
+
+
+     STARTING VALUES
+
+
+           TAU
+              SMOKING3      T3_LADDE      T3_LADDE      T3_LADDE
+              ________      ________      ________      ________
+                0.768        -0.634         0.155         0.757
+
+
+           NU
+              SMOKING3      P1EAEFC       G1WISCDQ      T3_LADDE
+              ________      ________      ________      ________
+                0.000         0.000         0.000         0.000
+
+
+           LAMBDA
+              SMOKING3      P1EAEFC       G1WISCDQ      T3_LADDE
+              ________      ________      ________      ________
+ SMOKING3       1.000         0.000         0.000         0.000
+ P1EAEFC        0.000         1.000         0.000         0.000
+ G1WISCDQ       0.000         0.000         1.000         0.000
+ T3_LADDE       0.000         0.000         0.000         1.000
+
+
+           THETA
+              SMOKING3      P1EAEFC       G1WISCDQ      T3_LADDE
+              ________      ________      ________      ________
+ SMOKING3       0.000
+ P1EAEFC        0.000         0.000
+ G1WISCDQ       0.000         0.000         0.000
+ T3_LADDE       0.000         0.000         0.000         0.000
+
+
+           ALPHA
+              SMOKING3      P1EAEFC       G1WISCDQ      T3_LADDE
+              ________      ________      ________      ________
+                0.000         3.111        99.681         0.000
+
+
+           BETA
+              SMOKING3      P1EAEFC       G1WISCDQ      T3_LADDE
+              ________      ________      ________      ________
+ SMOKING3       0.000         0.000         0.000         0.000
+ P1EAEFC        0.000         0.000         0.000         0.000
+ G1WISCDQ       0.000         0.000         0.000         0.000
+ T3_LADDE       0.000         0.000         0.000         0.000
+
+
+           GAMMA
+              ZEDU_PRS      ZSMOK_PR      G1AGEYRC      G1SEX         COHORT
+              ________      ________      ________      ________      ________
+ SMOKING3       0.000         0.000         0.000         0.000         0.000
+ P1EAEFC        0.000         0.000         0.000         0.000         0.000
+ G1WISCDQ       0.000         0.000         0.000         0.000         0.000
+ T3_LADDE       0.000         0.000         0.000         0.000         0.000
+
+
+           GAMMA
+              MEAN_EDU      T1_SMOK_
+              ________      ________
+ SMOKING3       0.000         0.000
+ P1EAEFC        0.000         0.000
+ G1WISCDQ       0.000         0.000
+ T3_LADDE       0.000         0.000
+
+
+           PSI
+              SMOKING3      P1EAEFC       G1WISCDQ      T3_LADDE
+              ________      ________      ________      ________
+ SMOKING3       1.000
+ P1EAEFC        0.000         0.262
+ G1WISCDQ       0.000         0.000       107.613
+ T3_LADDE       0.000         0.000         0.000         1.000
+
+
+<a name='tech9_output' class='heading'>TECHNICAL 9 OUTPUT</a>
+
+
+Errors for replication with data file mi_dataset_MPLUS1.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS2.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS3.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS4.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS5.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS6.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS7.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS8.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS9.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS10.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS11.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS12.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS13.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS14.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS15.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS16.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS17.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS18.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS19.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS20.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS21.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS22.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS23.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS24.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS25.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS26.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS27.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS28.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS29.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS30.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS31.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS32.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS33.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS34.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS35.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS36.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS37.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS38.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS39.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS40.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS41.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS42.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS43.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS44.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS45.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS46.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS47.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS48.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS49.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS50.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS51.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS52.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS53.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS54.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS55.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS56.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS57.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS58.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS59.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS60.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS61.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS62.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS63.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS64.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS65.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS66.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS67.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS68.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS69.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS70.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS71.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS72.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS73.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS74.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS75.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS76.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS77.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS78.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS79.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS80.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS81.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS82.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS83.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS84.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS85.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS86.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS87.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS88.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS89.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+Errors for replication with data file mi_dataset_MPLUS90.dat:
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    d:\onedrive - universiteit utrecht\trails prs paper\internal revision 2\scripts\edited datasets\mplus\figure s2_m16.
+
+     Beginning Time:  19:02:23
+        Ending Time:  19:02:29
+       Elapsed Time:  00:00:06
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2023 Muthen & Muthen
+</pre>
+</body>
+</html>
